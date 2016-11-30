@@ -22,11 +22,21 @@ namespace Peace
             }
         }
 
-        public Card Deal()
+        public Card Deal(Player player1, Player player2)
         {
-            Card temp = cards[0];
-            cards.RemoveAt(0);
-            return temp;
+            var hand1 = player1.hand;
+            var hand2 = player2.hand;
+            for (int i = 0; i < cards.Length; i++)
+            {
+                if(i % 2 == 0)
+                {
+                    hand1.add(cards[i])
+                }
+                else
+                {
+                    hand2.add(cards[i])
+                }
+            }
         }
         // public override string ToString()
         // {
