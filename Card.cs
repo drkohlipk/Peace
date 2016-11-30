@@ -11,7 +11,7 @@ namespace Peace
         public string StringValue {
             get{
                 switch (val)
-            }
+                {
                     case 1:
                         return "Ace";
                     case 11:
@@ -22,14 +22,13 @@ namespace Peace
                         return "King";
                     default:
                         return val.ToString();
+                }
+            }
         }
-    }
-}
-
         public Card(int _val, string _suit)
         {
             val = _val;
-            suite = _suit;
+            suit = _suit;
         }
-
+    }
 }

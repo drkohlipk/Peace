@@ -28,15 +28,15 @@ namespace Peace
             cards.RemoveAt(0);
             return temp;
         }
-        public override string ToString()
-        {
-            string str = "List of Cards:\n============\n";
-            foreach(Card card in cards)
-            {
-                str += card.StringValue + " of " + card.suit + "\n";
-            }
-            return str;
-        }
+        // public override string ToString()
+        // {
+        //     string str = "List of Cards:\n============\n";
+        //     foreach(Card card in cards)
+        //     {
+        //         str += card.StringValue + " of " + card.suit + "\n";
+        //     }
+        //     return str;
+        // }
 
         public void Reset()
         {
