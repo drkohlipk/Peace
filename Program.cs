@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Peace
 {
     public class Program
     {
+        public static int PeaceNegotiation(Player player1, Player player2, Card card1, Card card2)
+        {
+
+        }
         public static int Check(Card card1, Card card2)
         {
             if (card1.val < card2.val)
@@ -33,11 +38,37 @@ namespace Peace
             deck.shuffle();
             deck.Deal(player1, player2);
             Console.Clear();
-            Console.WriteLine($"{player1.name} and {player2.name}, get ready to play!");
+            Console.WriteLine("Ready Player 1?");
             Console.WriteLine("\nPress the any key to continue...");
-            while (player1.hand > 0 || player2.hand > 0)
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("Ready Player 2?");
+            Console.WriteLine("\nPress the any key to continue...");
+            Console.ReadKey();
+            while (player1.hand.Count > 0 || player2.hand.Count > 0)
             {
+                Card card1 = player1.Draw();
+                Card card2 = player2.Draw();
+                int winner = Check(card1, card2);
+                switch (winner)
+                {
+                    case 1:
+                        Console.WriteLine($"{player1.name} drew a {card1.StringValue} of {card1.suit}, {player2.name} drew a {card2.StringValue} of {card2.suit}.  {player2.name} wins!");
+                        player2.hand.Add(card1);
+                        player2.hand.Add(card2);
+                        break;
+                    case 2:
+                        Console.WriteLine($"{player1.name} drew a {card1.StringValue} of {card1.suit}, {player2.name} drew a {card2.StringValue} of {card2.suit}.  {player1.name} wins!");
+                        player1.hand.Add(card1);
+                        player1.hand.Add(card2);
+                        break;
+                    case 3:
+                        Console.WriteLine($"{player1.name} drew a {card1.StringValue} of {card1.suit}, {player2.name} drew a {card2.StringValue} of {card2.suit}.  It's a tie! Time for Peace Negotiation...");
 
+                        PeaceNegotiation(player1,player2,card1,card2);
+                        break;
+                }
+                
             }
             
             Console.Clear();
