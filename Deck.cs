@@ -22,19 +22,19 @@ namespace Peace
             }
         }
 
-        public Card Deal(Player player1, Player player2)
+        public void Deal(Player player1, Player player2)
         {
             var hand1 = player1.hand;
             var hand2 = player2.hand;
-            for (int i = 0; i < cards.Length; i++)
+            for (int i = 0; i < cards.Count; i++)
             {
                 if(i % 2 == 0)
                 {
-                    hand1.add(cards[i])
+                    hand1.Add(cards[i]);
                 }
                 else
                 {
-                    hand2.add(cards[i])
+                    hand2.Add(cards[i]);
                 }
             }
         }
