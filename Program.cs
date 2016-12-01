@@ -12,11 +12,11 @@ namespace Peace
             List<Card> p2negot = new List<Card> {player2.Draw(),player2.Draw(),player2.Draw()};
             Console.Write($"{player1.name}, pick a card from {player2.name}'s hand (enter 1-3): ");
             ConsoleKeyInfo p1 =  Console.ReadKey();
-            int p1pick = int.Parse(p1.KeyChar.ToString());
+            int p1pick = (int.Parse(p1.KeyChar.ToString()))-1;
             Console.Clear();
             Console.Write($"{player2.name}, pick a card from {player1.name}'s hand (enter 1-3): ");
             ConsoleKeyInfo p2 =  Console.ReadKey();
-            int p2pick = int.Parse(p1.KeyChar.ToString());
+            int p2pick = (int.Parse(p1.KeyChar.ToString()))-1;
             Card p1cardpick = p2negot[p2pick];
             Card p2cardpick = p1negot[p1pick];
             int winner = Check(p2cardpick, p1cardpick);
